@@ -9,8 +9,8 @@ public class TicketTest {
 	
 	public static Ticket c = null;
 	final static double PRICE_FOR_KM = 0.21;
-	final static  double overDiscount = 0.6;
-	final static  double underDiscount = 0.8;
+	final static  double OVER_DISCOUNT = 0.6;
+	final static  double UNDER_DISCOUNT = 0.8;
 	
 	@Test
 	public void ageTest() {
@@ -46,7 +46,7 @@ public class TicketTest {
 	public void discountOver() throws Exception{
 		double km = 100;
 		int age = 65;
-		double priceOverDiscount = (PRICE_FOR_KM * km) * overDiscount;
+		double priceOverDiscount = (PRICE_FOR_KM * km) * OVER_DISCOUNT;
 		c = new Ticket(km,age);
 		
 		assertEquals(priceOverDiscount, c.getFullPrice(), "Price with discount over 65 not correct");
@@ -56,7 +56,7 @@ public class TicketTest {
 	public void discountUnder() throws Exception{
 		double km = 100;
 		int age = 17;
-		double priceUnderDiscount = (PRICE_FOR_KM * km) * underDiscount;
+		double priceUnderDiscount = (PRICE_FOR_KM * km) * UNDER_DISCOUNT;
 		c = new Ticket(km,age);
 		
 		assertEquals(priceUnderDiscount, c.getFullPrice(), "Price with discount under 18 not correct");

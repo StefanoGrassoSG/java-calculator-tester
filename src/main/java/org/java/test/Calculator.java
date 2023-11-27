@@ -2,27 +2,23 @@ package org.java.test;
 
 public class Calculator {
 	
-	public float add(float x, float y) {
-		float z = (float) x + y;
-		return z;
+	public float add(float a, float b) {
+		return a + b;
 	}
 	
-	public float subtract(float x, float y) {
-		float z = (float) x - y;
-		return z;
+	public float subtract(float a, float b) {
+		return a - b;
 	}
 
-	public float divide(float x, float y) throws Exception{
-		if(y == 0) {
+	public float divide(float a, float b) throws Exception{
+		if(a == 0 || b == 0) {
 			throw new Exception("Y cant be 0");
 		}
-		float z = (float) x / y;
-		return z;
+		return a / b;
 	}
 	
-	public float moltilpy(float x, float y) {
-		float z = (float) x * y;
-		return z;
+	public float moltilpy(float a, float b) {
+		return a * b;
 	}
 	
 }

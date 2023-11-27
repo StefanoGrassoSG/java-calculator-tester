@@ -12,8 +12,6 @@ public class CalculatorTest {
 	
 	public static Calculator c = null;
 	Random random = new Random();
-
-    float randomFloat = random.nextFloat();
   
 	@BeforeAll
 	public static void init() {
@@ -22,48 +20,48 @@ public class CalculatorTest {
 	
 	@RepeatedTest(2)
 	public void addTest() {
-		float x = randomFloat;
-		float y = randomFloat;
+		float a = random.nextFloat() * 1000;
+		float b = random.nextFloat() * 1000;
 		
-		float sum = (float) x + y;
-		assertEquals(sum, c.add(x, y), "SUM EXPECTED CORRECTLY");
+		float add = a + b;
+		assertEquals(add, c.add(a, b), "result incorrect");
 	}
 	
 	@RepeatedTest(2)
 	public void subtractTest() {
-		float x = randomFloat;
-		float y = randomFloat;
+		float a = random.nextFloat() * 1000;
+		float b = random.nextFloat() * 1000;
 		
-		float sum = (float) x - y;
-		assertEquals(sum, c.subtract(x, y), "SUBTRACION EXPECTED CORRECTLY");
+		float sub = a - b;
+		assertEquals(sub, c.subtract(a, b), "result incorrect");
 	}
 	
 	@RepeatedTest(2)
 	public void moltiplyTest() {
-		float x = randomFloat;
-		float y = randomFloat;
+		float a = random.nextFloat() * 1000;
+		float b = random.nextFloat() * 1000;
 		
-		float sum = (float) x * y;
-		assertEquals(sum, c.moltilpy(x, y), "MOLT EXPECTED CORRECTLY");
+		float mol = a * b;
+		assertEquals(mol, c.moltilpy(a, b), "result incorrect");
 	}
 	
 	@RepeatedTest(2)
 	public void divideTest() throws Exception {
-		float x = randomFloat;
-		float y = randomFloat;
+		float a = random.nextFloat() * 1000;
+		float b = random.nextFloat() * 1000;
 		
-		float sum = (float) x / y;
-		assertEquals(sum, c.divide(x, y), "DIV EXPECTED CORRECTLY");
+		float div = a / b;
+		assertEquals(div, c.divide(a, b), "result incorrect");
 	}
 	
 	@RepeatedTest(2)
 	public void divideByZeroTest() {
-		float x = randomFloat;
-		float y = (float) 0;
+		float a = random.nextFloat() * 1000;
+		float b = 0;
 		
 		assertThrows(Exception.class,
-				() -> c.divide(x,y), 
-				"Exception for divide by 0");
+				() -> c.divide(a,b), 
+				"exception not throwed");
 	}
 
 }
